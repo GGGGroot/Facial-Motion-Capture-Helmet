@@ -1,5 +1,5 @@
 # Facial-Motion-Capture-Helmet    
-![sample](https://github.com/wangzihao323/Facial-Motion-Capture-Helmet/blob/main/image/sample.png?raw=true)
+![sample](https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/main/image/sample.png?raw=true)
 ## Background   
   Some autism has difficulty holding a conversation or understanding facial expressions when talking with others.     
   Facial dysmorphia is a mental health condition where a person spends a lot of time worrying about flaws in their appearance.      
