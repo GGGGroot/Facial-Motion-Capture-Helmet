@@ -1,4 +1,3 @@
-#pragma comment(linker, "/subsystem:windows /entry:mainCRTStartup")//È¥³ýCMD´°¿Ú
 #include <dlib/opencv.h>  
 #include <opencv2/opencv.hpp>  
 #include <dlib/image_processing/frontal_face_detector.h>  
@@ -47,35 +46,35 @@ int main()
 
 			if (!shapes.empty()) {
 				float testData[1][136];
-				float ÏµÊý = -(faces[0].top() - faces[0].bottom()) / 300.0;
+				float ç³»æ•° = -(faces[0].top() - faces[0].bottom()) / 300.0;
 				for (int i = 0; i < 68; i++) {
 					circle(temp, cvPoint(shapes[0].part(i).x(), shapes[0].part(i).y()), 2, cv::Scalar(255, 0, 0), -1);
-					testData[0][i * 2] = (shapes[0].part(i).x() - faces[0].left()) / ÏµÊý;
-					testData[0][i * 2+1] = (shapes[0].part(i).y() - faces[0].top()) / ÏµÊý;
-					//  shapes[0].part(i).x();//68¸ö  
+					testData[0][i * 2] = (shapes[0].part(i).x() - faces[0].left()) / ç³»æ•°;
+					testData[0][i * 2+1] = (shapes[0].part(i).y() - faces[0].top()) / ç³»æ•°;
+					//  shapes[0].part(i).x();//68ä¸ª  
 				}
-				cv::Mat ½á¹û;
+				cv::Mat ç»“æžœ;
 				
 				cv::Mat query(1, 136, CV_32FC1, testData);
 
 				if (svm->predict(query) == 250) {
 					cv::putText(temp, "Happy" , cv::Point(20, 60),3, 2, cvScalar(0, 0, 255));
-					cout << "¸ßÐË" << endl;
+					cout << "é«˜å…´" << endl;
 				}
 					
 				if (svm->predict(query) == 170) {
 					cv::putText(temp, "Common", cv::Point(20, 60), 3, 2, cvScalar(0, 0, 255));
-					cout << "Æ½¾²" << endl;
+					cout << "å¹³é™" << endl;
 				}
 				if (svm->predict(query) == 300) {
 					cv::putText(temp, "Disgust", cv::Point(20, 60), 3, 2, cvScalar(0, 0, 255));
-					cout << "Ñá¶ñ" << endl;
+					cout << "åŽŒæ¶" << endl;
 				}
 				//	cout<<	svm->predict(query)<<endl;
-			//	cout << ½á¹û << endl;
+			//	cout << ç»“æžœ << endl;
 			}
 			//Display it all on the screen  
-			imshow("±íÇéÊ¶±ð      ESCÍË³ö", temp);
+			imshow("è¡¨æƒ…è¯†åˆ«      ESCé€€å‡º", temp);
 
 		}
 	}
