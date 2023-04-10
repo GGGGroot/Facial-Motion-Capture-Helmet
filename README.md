@@ -5,17 +5,19 @@
 - Shenjia Ding: pair programming as driver and system environment set-up
 - Wenjin Chi: LED strip designing and soldering, expression display coding
 - Zihao Wang: pair programming as navigator and constructing good training set
-## Background   
+## Project Description
+  The facial-motion-capture helmet is a real-time facial expression feedback system by using the camera to capture the wearer’s facial emotion based on the Linux embedded system - Raspberry Pi, and then the corresponding expressions are fed back into the light array for display. This expression recognition system uses the OpenCV and dlib libraries in C++ for video signal acquisition and real-time feedback of facial expressions and can currently recognise basic emotion like happy, sad and calm. The expressions displayed in real time are cute and can be used as a device for Vtuber and for treating people with autism.
+### Background   
   Some autism has difficulty holding a conversation or understanding facial expressions when talking with others.     
   Facial dysmorphia is a mental health condition where a person spends a lot of time worrying about flaws in their appearance.  
   Vtubers need a headset to help them with their creative work.
-## Technologies   
+### Technologies   
   Facial recognition    
   LED strip design     
-## Difficulties    
+### Difficulties    
   Finite distance & light            
   Motion Recognition     
-## Business prospects         
+### Business prospects         
   Vtuber       
   VR Device          
   Cyberpunk art installation
