@@ -52,3 +52,4 @@
 - [ ] conducting unit test of the auto boot-up function
 ## Unit Test
 
+## Project guide
