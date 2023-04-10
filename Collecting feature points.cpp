@@ -58,7 +58,7 @@ int main()
                 for (int i = 0; i < 68; i++) {
                     circle(temp, cvPoint(shapes[0].part(i).x(), shapes[0].part(i).y()), 3, cv::Scalar(0, 0, 255), -1);
                     putText(temp, to_string(i), cvPoint(shapes[0].part(i).x(), shapes[0].part(i).y()), cv::FONT_HERSHEY_PLAIN, 1, cv::Scalar(255, 0, 0), 1, 4);
-                    //--------------Õâ²¿·ÖÊÇÓÃÀ´²É¼¯ÑµÁ·Êý¾ÝµÄ
+                    //--------------è¿™éƒ¨åˆ†æ˜¯ç”¨æ¥é‡‡é›†è®­ç»ƒæ•°æ®çš„
                     write_to_txt((to_string(filename) + ".txt"), to_string((shapes[0].part(i).x() - faces[0].left()) / coef), 0);
                     write_to_txt((to_string(filename) + ".txt"), to_string((shapes[0].part(i).y() - faces[0].top()) / coef), 0);
                 }
@@ -77,10 +77,11 @@ int main()
     }
 }
 void write_to_txt(string name, string content, bool overwrite) {
-        ofstream write(name, overwrite ? ios::trunc : ios::app);
-
-        if (write.is_open()) {
-            write << content << endl;
-            write.close();
-        }
+    ofstream write(name, overwrite ? ios::trunc : ios::app);
+    
+    if (write.is_open()) {
+        write << content << endl;
+        write.close();
+    }
+}
 
