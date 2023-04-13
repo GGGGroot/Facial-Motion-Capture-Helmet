@@ -30,7 +30,7 @@
 - [x] conducting Unit test of the facial recognition function
 - [x] writing main function
 - [ ] conducting unit test of the main function
-- [ ] combining the LED strip function into the main program
+- [x] combining the LED strip function into the main program
 - [ ] testing the final program  
 #### LED strip designing and soldering - Wenjin Chi  
 - [x] Buying LED strip and camera
@@ -47,7 +47,7 @@
 - [x] booking a technical service to 3D print the front panel
 - [x] upgrading README file and creating Gantt chart of this project to illustrate timeline
 - [x] designing base plate of the helmet
-- [ ] booking a technical service to 3D print the base plate
+- [x] booking a technical service to 3D print the base plate
 - [ ] writing boot-up coding
 - [ ] conducting unit test of the auto boot-up function
 ## Unit Test
