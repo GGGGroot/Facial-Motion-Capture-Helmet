@@ -9,7 +9,6 @@ void read_data(float data_array[150][136], int start, string directory);
 int main()
 {
     float data_array[150][136];
-
     read_data(data_array, 0, "Calm");
     read_data(data_array, 50, "Happy");
     read_data(data_array, 100, "Disgusted");
