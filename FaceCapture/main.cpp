@@ -7,7 +7,6 @@
 
 using namespace dlib;
 using namespace std;
-//using namespace cv;
 using namespace cv::ml;
 
 
