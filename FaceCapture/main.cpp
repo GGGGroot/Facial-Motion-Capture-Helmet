@@ -1,11 +1,9 @@
-//#pragma comment(linker, "/subsystem:windows /entry:mainCRTStartup")
 #include <dlib/opencv.h>  
 #include <opencv2/opencv.hpp>  
 #include <dlib/image_processing/frontal_face_detector.h>  
 #include <dlib/image_processing/render_face_detections.h>  
 #include <dlib/image_processing.h>  
 #include <dlib/gui_widgets.h>  
-//#include <headfile.h>
 
 using namespace dlib;
 using namespace std;
@@ -55,61 +53,11 @@ ws2811_t ledstring = {
     },
 };
 
-//void handleSignal(int signal) {
-//    if (signal == SIGINT || signal == SIGTERM) {
-//        ws2811_fini(&ledstring);
-//        exit(0);
-//    }
-//}
-
-//void chase(uint32_t color, int wait) {
-  //  for (int j = 0; j < LED_COUNT + 1; j++) {
-    //    for (int i = 0; i < LED_COUNT; i++) {
-      //      if (i == j - 1) {
-        //        ledstring.channel[0].leds[i] = color;
-          //  } else {
-            //    ledstring.channel[0].leds[i] = 0x000000;
-            //}
-        //}
-        //ws2811_render(&ledstring);
-        //usleep(wait * 1000);
-    //}
-//}
-
-//void lightup(uint32_t color) {
-  //  if (ws2811_init(&ledstring) != WS2811_SUCCESS) {
-    //    std::cerr << "ws2811_init failed" << std::endl;
-    //}
-
-    //signal(SIGINT, handleSignal);
-    //signal(SIGTERM, handleSignal);
-
-    //uint32_t color = 0x00FF00; // 绿色
-    //int wait = 1000; // 100毫秒的延迟
-    //chase(color, wait);
-
-    //for (int i = 0; i < LED_COUNT; i++) {
-      //  ledstring.channel[0].leds[i] = 0x000000;
-    //}
-
-    //if (ws2811_render(&ledstring) != WS2811_SUCCESS) {
-      //  std::cerr << "ws2811_render failed" << std::endl;
- //   }
-
-    //ws2811_fini(&ledstring);
-
-//}
-
-
 void lightUpMultipleLEDs(const std::vector<int>& ledIndices,uint32_t color) {
 	if (ws2811_init(&ledstring) != WS2811_SUCCESS) {
 		std::cerr << "ws2811_init failed" << std::endl;
 	}
 
-	//uint32_t color = 0x00FF00; // 绿色
-	int wait = 1000; // 100毫秒的延迟
-
-	// 设置要点亮的LED的颜色
 	for (int ledIndex : ledIndices) {
 		if (ledIndex >= 0 && ledIndex < LED_COUNT) {
 			ledstring.channel[0].leds[ledIndex] = color;
@@ -123,9 +71,6 @@ void lightUpMultipleLEDs(const std::vector<int>& ledIndices,uint32_t color) {
 	if (ws2811_render(&ledstring) != WS2811_SUCCESS) {
 		std::cerr << "ws2811_render failed" << std::endl;
 	}
-
-	// 等待指定的延迟时间（毫秒）
-	//usleep(wait * 1000);
 
 	ws2811_fini(&ledstring);
 }
@@ -155,25 +100,11 @@ int main()
 		deserialize("shape_predictor_68_face_landmarks.dat") >> pose_model;
 
 		cv::Ptr<SVM> svm = StatModel::load<SVM>("/home/raspberry/FaceCapture/SVM_DATA.xml");
-		
-		
-		//29/03 output fps 
+
 		cap.set(cv::CAP_PROP_FPS,30);
 		//change width&length
 		cap.set(cv::CAP_PROP_FRAME_WIDTH,320);
 		cap.set(cv::CAP_PROP_FRAME_HEIGHT,240);
-		//cv::CAP_PROP_FPS
-		//int fps=cap.get(cv::CAP_PROP_FPS);
-		//int wid=cap.get(cv::CAP_PROP_FRAME_WIDTH);
-		//int hei=cap.get(cv::CAP_PROP_FRAME_HEIGHT);
-		//printf("fps: %d \n",fps);
-		//printf("wid: %d \n",wid);
-		//printf("hei: %d \n",hei);
-		
-		
-		
-
-
 
 		// Grab and process frames until the main window is closed by the user.  
 		while (cv::waitKey(1000) != 27)
@@ -205,9 +136,7 @@ int main()
 
 				if (svm->predict(query) == 250) {
 					cv::putText(temp, "Happy" , cv::Point(20, 60),3, 2, cvScalar(0, 0, 255));
-					//printf("fps: %d \n",fps);
 					cout << "Happy!" << endl;
-					//lightup(0x00FF00);
 					std::vector<int> ledIndices = { 10,11,25,26,31,32,45,46,54,55,
 									65,66,78,79,91,92,101,102,114,115,128,129 }; // 要点亮的LED的索引列表
 					lightUpMultipleLEDs(ledIndices, 0xFF0000);
@@ -215,23 +144,17 @@ int main()
 					
 				if (svm->predict(query) == 170) {
 					cv::putText(temp, "Common", cv::Point(20, 60), 3, 2, cvScalar(0, 0, 255));
-					//printf("fps: %d \n",fps);
-					cout << "Common!" << endl;
-					//lightup(0xFF0000);
 					std::vector<int> ledIndices = { 24,25,26,27,28,29,30,31,32,65,66,78,79,89,90,103,104,114,115,128,129 }; // 要点亮的LED的索引列表
 					lightUpMultipleLEDs(ledIndices, 0x00FF00);
 				}
 				if (svm->predict(query) == 300) {
 					cv::putText(temp, "Shocked", cv::Point(20, 60), 3, 2, cvScalar(0, 0, 255));
-					//printf("fps: %d \n",fps);
 					cout << "Shocked!" << endl;
-					//lightup(0x0000FF);
 					std::vector<int> ledIndices = { 8,9,10,11,12,13,25,26,31,32,48,49,50,51,52,53,
 									64,65,66,78,79,80,88,91,102,105,113,114,115,128,129,130 }; // 要点亮的LED的索引列表
 					lightUpMultipleLEDs(ledIndices, 0x0000FF);
 				}
-				//	cout<<	svm->predict(query)<<endl;
-			//	cout << ��� << endl;
+
 			}
 			//Display it all on the screen  
 			imshow("Motion Capture", temp);
