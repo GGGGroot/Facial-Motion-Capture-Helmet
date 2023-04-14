@@ -1,9 +1,9 @@
 # Facial-Motion-Capture-Helmet    
 ![sample](https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/main/image/sample.png?raw=true)
 ## Project Contributors
-- Yixuan Pang: project management and hardware designing
+- Yixuan Pang: project management, hardware designing and boot-up coding
 - Shenjia Ding: pair programming as driver and system environment set-up
-- Wenjin Chi: LED strip designing and soldering, expression display coding
+- Wenjin Chi: LED strip designing, soldering, and expression display coding
 - Zihao Wang: pair programming as navigator and constructing training set
 ## Project Description
   The facial-motion-capture helmet is a real-time facial expression feedback system by using the camera to capture the wearer’s facial emotion based on the Linux embedded system - Raspberry Pi, and then the corresponding expressions are fed back into the light array for display. This expression recognition system uses the OpenCV and dlib libraries in C++ for video signal acquisition and real-time feedback of facial expressions and can currently recognise basic emotion like happy, sad and calm. The expressions displayed in real time are cute and can be used as a device for Vtuber and for treating people with autism and facial dysmorphia.
