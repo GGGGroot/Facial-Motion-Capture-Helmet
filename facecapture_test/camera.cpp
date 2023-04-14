@@ -44,9 +44,7 @@ void recognizeMotion(cv::Mat temp,frontal_face_detector detector,shape_predictor
 
 		if (svm->predict(query) == 250) {
 			cv::putText(temp, "Happy" , cv::Point(20, 60),3, 2, cvScalar(0, 0, 255));
-			//printf("fps: %d \n",fps);
 			cout << "Happy!" << endl;
-			//lightup(0x00FF00);
 			std::vector<int> ledIndices = { 10,11,25,26,31,32,45,46,54,55,
 									65,66,78,79,91,92,101,102,114,115,128,129 }; // 要点亮的LED的索引列表
 			lightUpMultipleLEDs(ledIndices, 0xFF0000);
@@ -54,17 +52,13 @@ void recognizeMotion(cv::Mat temp,frontal_face_detector detector,shape_predictor
 				
 		if (svm->predict(query) == 170) {
 			cv::putText(temp, "Common", cv::Point(20, 60), 3, 2, cvScalar(0, 0, 255));
-			//printf("fps: %d \n",fps);
 			cout << "Common!" << endl;
-			//lightup(0xFF0000);
 			std::vector<int> ledIndices = { 24,25,26,27,28,29,30,31,32,65,66,78,79,89,90,103,104,114,115,128,129 }; // 要点亮的LED的索引列表
 			lightUpMultipleLEDs(ledIndices, 0x00FF00);
 		}
 		if (svm->predict(query) == 300) {
 			cv::putText(temp, "Shocked", cv::Point(20, 60), 3, 2, cvScalar(0, 0, 255));
-			//printf("fps: %d \n",fps);
 			cout << "Shocked!" << endl;
-			//lightup(0x0000FF);
 			std::vector<int> ledIndices = { 8,9,10,11,12,13,25,26,31,32,48,49,50,51,52,53,
 							64,65,66,78,79,80,88,91,102,105,113,114,115,128,129,130 }; // 要点亮的LED的索引列表
 			lightUpMultipleLEDs(ledIndices, 0x0000FF);
