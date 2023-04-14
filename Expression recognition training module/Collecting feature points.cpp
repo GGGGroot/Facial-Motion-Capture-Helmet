@@ -58,7 +58,6 @@ int main()
                 for (int i = 0; i < 68; i++) {
                     circle(temp, cvPoint(shapes[0].part(i).x(), shapes[0].part(i).y()), 3, cv::Scalar(0, 0, 255), -1);
                     putText(temp, to_string(i), cvPoint(shapes[0].part(i).x(), shapes[0].part(i).y()), cv::FONT_HERSHEY_PLAIN, 1, cv::Scalar(255, 0, 0), 1, 4);
-                    //--------------这部分是用来采集训练数据的
                     write_to_txt((to_string(filename) + ".txt"), to_string((shapes[0].part(i).x() - faces[0].left()) / coef), 0);
                     write_to_txt((to_string(filename) + ".txt"), to_string((shapes[0].part(i).y() - faces[0].top()) / coef), 0);
                 }
