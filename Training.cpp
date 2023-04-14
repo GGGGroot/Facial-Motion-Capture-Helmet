@@ -20,18 +20,15 @@ int main()
         face_labels[i + 100] = 300;
     }
 
-    //训练需要用到的数据
-    //	int 标签[4] = { 1, 2, 3, 4 };
-    //	float 训练数据[4][2] = { { 31, 12 },{ 65, 220 },{ 440, 350 },{ 400, 400 } };
-    //转为Mat以调用
+    // Convert to Mat to call
     Mat trainingMat(150, 136, CV_32FC1, data_array);
     Mat labelMat(150, 1, CV_32SC1, face_labels);
-    //训练的初始化
+    // Initialize the training
     Ptr<SVM> svm = SVM::create();
     svm->setType(SVM::C_SVC);
     svm->setKernel(SVM::LINEAR);
     svm->setTermCriteria(TermCriteria(TermCriteria::MAX_ITER, 100, 1e-6));
-    //开始训练
+    // Start training
     svm->train(trainingMat, ROW_SAMPLE, labelMat);
     svm->save("SVM_DATA.xml");
 }
