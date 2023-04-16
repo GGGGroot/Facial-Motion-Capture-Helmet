@@ -56,7 +56,7 @@
 ### Hardware guidance
 
 #### Raspberry Pi
-In this project, our team is using the Raspberry Pi 4 Model B with 4GB Ram. It is an embedded system and has good performance.
+In this project, our team is using the Raspberry Pi 4 Model B with 4GB Ram. It is an embedded system and has good performance.    
 <img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-5/image/Raspberry%20Pi.png" length="1024" width="640"> 
 
 #### Pi camera
@@ -64,7 +64,7 @@ The Raspberry Pi Camera Module v2 is a customised expansion board for the Raspbe
 <img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-5/image/Pi%20Camera.jpg">    
 
 #### WS2812B LED strip
-WS2812B is an intelligent control LED light source that the control circuit and RGB chip are integrated in. It is programmable and cuttable. The voltage support is DC5V, which is the same of Raspberry Pi.  
+WS2812B is an intelligent control LED light source that the control circuit and RGB chip are integrated in. It is programmable and cuttable. The voltage support is DC5V, which is the same of Raspberry Pi.   
 <img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-5/image/WS2812B%20LED%20Strip.jpg" length="1024" width="640">
 
 ### Environment construction 
