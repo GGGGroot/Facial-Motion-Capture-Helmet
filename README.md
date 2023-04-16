@@ -1,5 +1,9 @@
 # Facial-Motion-Capture-Helmet    
 ![sample](https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/main/image/sample.png?raw=true)
+
+>[Click me to visit the Twitter channel](https://twitter.com/Team_29_)    
+>[Click me to visit the Instagram channel](https://instagram.com/facial_motion_capture_helmet?igshid=YmMyMTA2M2Y=)
+
 ## Project Contributors
 - Yixuan Pang: project management, hardware designing and boot-up coding
 - Shenjia Ding: pair programming as driver and system environment set-up
@@ -77,7 +81,21 @@ The program uses the OpenCV library for image processing and display, and the Dl
 
 First, the camera is turned on using the OpenCV library and the frame image is acquired from the camera, followed by the face detection of the face in the frame image using the face detector in the Dlib library. The default face detector is obtained by calling the get_frontal_face_detector function. A pre-trained model, called `shape_predictor_68_face_landmarks`, is provided in the Dlib library for detecting facial landmarks. This model can recognise 68 different landmarks on the human face, including key areas such as eyebrows, eyes, nose and mouth, and can be used to recognise expressions.  
 
-To recognise expressions, facial feature points are first normalised and used as input to the SVM classifier, which uses the OpenCV library's `StatModel::load` method to load pre-trained model files. Based on the results of the SVM predictions, the system can determine whether the face is a happy, normal or surprised expression. 
+To recognise expressions, facial feature points are first normalised and used as input to the SVM classifier, which uses the OpenCV library's `StatModel::load` method to load pre-trained model files. Based on the results of the SVM predictions, the system can determine whether the face is a happy, common or shocked expression. Figure.1 shows the happiness expression determined through the system. Figure.2 shows the common expression determined through the system. Figure.3 shows the shocked expression determined through the system.
+
+<div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/main/image/Expression%20Recognition%20-%20Happy.png" length="1024" width="640">  
+
+<p align="center">Figure.1 the happiness expression determined through the system</p>  
+
+<div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/main/image/Expression%20Recognition%20-%20Common.png" length="1024" width="640">  
+
+<p align="center">Figure.2 the common expression determined through the system</p>  
+
+<div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/main/image/Expression%20Recognition%20-%20Shocked.png" length="1024" width="640">  
+
+<p align="center">Figure.3 the shocked expression determined through the system</p>     
+
+<div align=left>
 
 Main ideas: (training module + test module)  
 
@@ -87,12 +105,11 @@ Training module:
 - [x] Each picture stores 136 dimensional data stored into a specific numbered TXT for easy recall.  
 - [x] Use SVM classifier to classify and train into XML. 
 
-  
-
 Test module:  
 
 Read in the trained XML, classify each frame and display the results. 
- 
+
+The programme can be viewed through [there](https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/tree/main/Expression%20recognition%20training%20module).
 ### Light array connection and display 
 In this project, WS2812B LED strip was used as the output equipment to show the corresponding facial expressions on the helmet. Light sets are available in 30 per metre and 144 per metre. The project uses 144 per metre, deployed around the eyes and mouth.
 #### LED strip soldering 
@@ -103,39 +120,43 @@ It is pivotal to know where the LED strip begins and the number of each LED. Fir
 The part of the eye that expresses happiness is designed as `><` and the part of the mouse is designed as `v`. After calibration, lights in the optional light array are counted to display this expression:  . Figure. shows the happiness expression displayed in the front panel.  
 <div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/happy.jpg" length="1024" width="640">   
 
-  Figure. the happiness expression 
-  
+Figure. the happiness expression 
+<div align=left>
+
 The part of the eye that expresses shock is designed as `▯▯` and the part of the mouse is designed as `▯`. After calibration, lights in the optional light array are counted to display this expression. Figure. shows the shocked expression displayed in the front panel.  
 <div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/shock.jpg" length="1024" width="640">
 
-  Figure. the shock expression 
-  
+Figure. the shock expression 
+<div align=left>
+
 The part of the eye that expresses calm is designed as `▯▯` and the part of the mouse is designed as `一`. After calibration, lights in the optional light array are counted to display this expression:  . Figure. shows the calm expression displayed in the front panel.  
 <div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/calm.jpg" length="1024" width="640">
 
-  Figure. the happiness expression 
+Figure. the happiness expression 
+<div align=left>
+
 ### Hardware design
 The hardware of the helmet contains two parts: front panel and base plate. The front panel has two layers. The first layer of the front panel needs to carry the LED strip circuit of the system. The second layer of the front panel should obscure most of the circuit details and reduce the brightness of the LEDs appropriately. The base plate is the main part. There should be designed proper places that could carry the Raspberry Pi, the front panel and battery and the whole helmet needs to be designed longer than normal mask so that it can provide sufficient distance between camera and wearer’s face.  
 #### Front panel design 
 The front panel contains two layers: the outer layer and the inner layer. The inner layer of the front panel needs to carry the LED strip, and in the meanwhile, it should have enough holes that could let the wearer able to see clearly what is in front of. This component is created by 3D printing service and the dimension of the inner layer is shown in Figure. The 3D dimension of this part is shown in Figure. The outer layer of the panel    
 <div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/front%20panel_00.jpg" length="1024" width="640">
  
-  Figure. Dimensions of the inner layer of the front panel layout   
+Figure. Dimensions of the inner layer of the front panel layout   
 <div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/3D%20front%20panel.png" length="1024" width="640">  
  
-  Figure. Three-dimensional model of the inner layer of the front panel 
+Figure. Three-dimensional model of the inner layer of the front panel 
+<div align=left>    
 
 #### Base plate design 
 The base plate contains most of the helmet. It should hold the front panel in the front and provide space for carrying the Raspberry Pi. Therefore, four M2.5 holes were cut in the bottom of the base plate to secure the Raspberry Pi, and a 0.79-inch diameter hole was punched in the side for the power cable. The dimension of the base plate is shown in Figure. The 3D dimension of this part is shown in Figure. 
 <div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/base%20plate_00.jpg" length="1024" width="640">    
 
-  Figure. Dimensions of the base plate layout 
+Figure. Dimensions of the base plate layout 
 
 <div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/3D%20base%20plate.png" length="1024" width="640">    
 
-  Figure. Three-dimensional model of the base plate 
+Figure. Three-dimensional model of the base plate 
   
- 
 
 
 
