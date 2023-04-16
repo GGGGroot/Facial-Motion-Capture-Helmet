@@ -33,9 +33,8 @@
 - [x] constructing training set and performing training
 - [x] conducting Unit test of the facial recognition function
 - [x] writing main function
-- [ ] conducting unit test of the main function
 - [x] combining the LED strip function into the main program
-- [ ] testing the final program  
+- [x] testing the final program  
 #### LED strip designing and soldering - Wenjin Chi  
 - [x] Buying LED strip and camera
 - [x] writing LED testing program to test LED strip
@@ -44,7 +43,7 @@
 - [x] writing the corrsponding expressions display in LED strip
 - [x] conducting unit test of the expression display function
 - [x] creating social media of this project
-- [ ] upgrading social media and README file
+- [x] upgrading social media and README file
 #### Hardware designing and document writing - Yixuan Pang
 - [x] creating github repository of this project and writing the README file
 - [x] designing front panel of the helmet
@@ -52,10 +51,7 @@
 - [x] upgrading README file and creating Gantt chart of this project to illustrate timeline
 - [x] designing base plate of the helmet
 - [x] booking a technical service to 3D print the base plate
-- [ ] writing boot-up coding
-- [ ] conducting unit test of the auto boot-up function
-## Unit Test
-
+- [x] writing boot-up coding
 ## Project guide
 ### Environment construction 
 To install OpenCV library, first thing is to download the modules of [OpenCV library](https://docs.opencv.org/). The development files end in `-dev` and for opencv they are of the format `libopencv-moduleYouWant-dev`, or `libopencv-dev`, which includes all openCV modules.
