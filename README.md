@@ -219,7 +219,7 @@ Figure.10 Three-dimensional model of the base plate
 <div align=left> 
 
 ### Auto start-up programme
-To self-start a script and run a particular C++ file in the Raspberry Pi, the first thing is to create a script file and save it in a suitable location. In this project, we store it to `/home/raspberry/startup.sh. Any text editor can be used to create this file.     
+To self-start a script and run a particular C++ file in the Raspberry Pi, the first thing is to create a script file and save it in a suitable location. In this project, we store it to path `/home/raspberry/startup.sh`. Any text editor can be used to create this file.     
 After that, add the following to the script file:
 ```
 #!/bin/bash
