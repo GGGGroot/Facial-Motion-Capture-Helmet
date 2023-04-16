@@ -115,47 +115,47 @@ In this project, WS2812B LED strip was used as the output equipment to show the 
 #### LED strip soldering 
 After purchasing the LED strip, the first thing is to cut and solder the WS2812B. Since the eyes will be longer than the mouth during display, 3 rows of 25 were cut to show the eyes and 3 rows of 20 were cut to show the mouth. After that, the six light arrays are connected in sequence by aligning each row with the corresponding earth, power and signal ports and applying insulated wire to prevent short circuits. When connecting, it should be taken care to solder in the direction that the arrows in the light array are pointing. If the arrows are pointing in the opposite direction, then the light array will not work properly either. Another thing to keep in mind is to align the design with the position of the front panel so as not to block the holes reserved for seeing things clearly. Figure. shows the soldering process of the LED strip and figure. shows the soldered light array. 
 #### LED strip display 
-It is pivotal to know where the LED strip begins and the number of each LED. First, connect the Raspberry Pi to the light array via the Dupont wire, with the start of the arrow or terminal being the start of the light array. The LED arrays are counted and marked in turn as a number for each lamp. In this project, a total of three facial expressions are recognised and displayed, namely happy, calm and shocked. 
+It is pivotal to know where the LED strip begins and the number of each LED. First, connect the Raspberry Pi to the light array via the Dupont wire, with the start of the arrow or terminal being the start of the light array. The LED arrays are counted and marked in turn as a number for each lamp. In this project, a total of three facial expressions are recognised and displayed, namely happy, common and shocked. 
 
-The part of the eye that expresses happiness is designed as `><` and the part of the mouse is designed as `v`. After calibration, lights in the optional light array are counted to display this expression:  . Figure. shows the happiness expression displayed in the front panel.  
+The part of the eye that expresses happiness is designed as `><` and the part of the mouse is designed as `v`. After calibration, lights in the optional light array are counted to display this expression. Figure.4 shows the happiness expression displayed in the front panel.  
 <div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/happy.jpg" length="1024" width="640">   
 
-Figure. the happiness expression 
+Figure.4 the happiness expression 
 <div align=left>
 
-The part of the eye that expresses shock is designed as `▯▯` and the part of the mouse is designed as `▯`. After calibration, lights in the optional light array are counted to display this expression. Figure. shows the shocked expression displayed in the front panel.  
+The part of the eye that expresses shock is designed as `▯▯` and the part of the mouse is designed as `▯`. After calibration, lights in the optional light array are counted to display this expression. Figure.5 shows the shocked expression displayed in the front panel.  
 <div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/shock.jpg" length="1024" width="640">
 
-Figure. the shock expression 
+Figure.5 the shocked expression 
 <div align=left>
 
-The part of the eye that expresses calm is designed as `▯▯` and the part of the mouse is designed as `一`. After calibration, lights in the optional light array are counted to display this expression:  . Figure. shows the calm expression displayed in the front panel.  
+The part of the eye that expresses calm is designed as `▯▯` and the part of the mouse is designed as `一`. After calibration, lights in the optional light array are counted to display this expression. Figure.6 shows the common expression displayed in the front panel.  
 <div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/calm.jpg" length="1024" width="640">
 
-Figure. the happiness expression 
+Figure.6 the common expression 
 <div align=left>
 
 ### Hardware design
 The hardware of the helmet contains two parts: front panel and base plate. The front panel has two layers. The first layer of the front panel needs to carry the LED strip circuit of the system. The second layer of the front panel should obscure most of the circuit details and reduce the brightness of the LEDs appropriately. The base plate is the main part. There should be designed proper places that could carry the Raspberry Pi, the front panel and battery and the whole helmet needs to be designed longer than normal mask so that it can provide sufficient distance between camera and wearer’s face.  
 #### Front panel design 
-The front panel contains two layers: the outer layer and the inner layer. The inner layer of the front panel needs to carry the LED strip, and in the meanwhile, it should have enough holes that could let the wearer able to see clearly what is in front of. This component is created by 3D printing service and the dimension of the inner layer is shown in Figure. The 3D dimension of this part is shown in Figure. The outer layer of the panel    
+The front panel contains two layers: the outer layer and the inner layer. The inner layer of the front panel needs to carry the LED strip, and in the meanwhile, it should have enough holes that could let the wearer able to see clearly what is in front of. This component is created by 3D printing service and the dimension of the inner layer is shown in Figure. The 3D dimension of this part is shown in Figure.7. The outer layer of the panel    
 <div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/front%20panel_00.jpg" length="1024" width="640">
  
-Figure. Dimensions of the inner layer of the front panel layout   
+Figure.7 Dimensions of the inner layer of the front panel layout   
 <div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/3D%20front%20panel.png" length="1024" width="640">  
  
-Figure. Three-dimensional model of the inner layer of the front panel 
+Figure.8 Three-dimensional model of the inner layer of the front panel 
 <div align=left>    
 
 #### Base plate design 
-The base plate contains most of the helmet. It should hold the front panel in the front and provide space for carrying the Raspberry Pi. Therefore, four M2.5 holes were cut in the bottom of the base plate to secure the Raspberry Pi, and a 0.79-inch diameter hole was punched in the side for the power cable. The dimension of the base plate is shown in Figure. The 3D dimension of this part is shown in Figure. 
+The base plate contains most of the helmet. It should hold the front panel in the front and provide space for carrying the Raspberry Pi. Therefore, four M2.5 holes were cut in the bottom of the base plate to secure the Raspberry Pi, and a 0.79-inch diameter hole was punched in the side for the power cable. The dimension of the base plate is shown in Figure.9. The 3D dimension of this part is shown in Figure.10. 
 <div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/base%20plate_00.jpg" length="1024" width="640">    
 
-Figure. Dimensions of the base plate layout 
+Figure.9 Dimensions of the base plate layout 
 
 <div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/3D%20base%20plate.png" length="1024" width="640">    
 
-Figure. Three-dimensional model of the base plate 
+Figure.10 Three-dimensional model of the base plate 
   
 
 
