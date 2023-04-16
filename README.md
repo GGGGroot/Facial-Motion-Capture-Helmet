@@ -53,6 +53,17 @@
 - [x] booking a technical service to 3D print the base plate
 - [x] writing boot-up coding
 ## Project guide
+### Hardware guidance
+
+#### Raspberry Pi
+In this project, our team is using the Raspberry Pi 4 Model B with 4GB Ram. It is an embedded system and has good performance.
+
+#### Pi camera
+The Raspberry Pi Camera Module v2 is a customised expansion board for the Raspberry Pi with a high quality 8MP Sony IMX219 sensor and a fixed focus lens. It can reach 3280 x 2464 pixel stills and also supports 1080p30, 720p60 and 640x480p60/90 camera capabilities. The expansion board understands the Raspberry Pi through a small slot on the surface of the board and uses a dedicated CSI interface, specially designed for cameras. In this project, we use 1080p30 camera capability.
+
+#### WS2812B LED strip
+WS2812B is an intelligent control LED light source that the control circuit and RGB chip are integrated in. It is programmable and cuttable. The voltage support is DC5V, which is the same of Raspberry Pi.  
+
 ### Environment construction 
 To install OpenCV library, first thing is to download the modules of [OpenCV library](https://docs.opencv.org/). The development files end in `-dev` and for opencv they are of the format `libopencv-moduleYouWant-dev`, or `libopencv-dev`, which includes all openCV modules.
 
