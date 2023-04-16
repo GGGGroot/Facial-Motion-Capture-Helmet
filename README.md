@@ -101,10 +101,19 @@ After purchasing the LED strip, the first thing is to cut and solder the WS2812B
 It is pivotal to know where the LED strip begins and the number of each LED. First, connect the Raspberry Pi to the light array via the Dupont wire, with the start of the arrow or terminal being the start of the light array. The LED arrays are counted and marked in turn as a number for each lamp. In this project, a total of three facial expressions are recognised and displayed, namely happy, calm and shocked. 
 
 The part of the eye that expresses happiness is designed as `><` and the part of the mouse is designed as `v`. After calibration, lights in the optional light array are counted to display this expression:  . Figure. shows the happiness expression displayed in the front panel.  
+<div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/happy.jpg" length="1024" width="640">   
 
+  Figure. the happiness expression 
+  
 The part of the eye that expresses shock is designed as `▯▯` and the part of the mouse is designed as `▯`. After calibration, lights in the optional light array are counted to display this expression. Figure. shows the shocked expression displayed in the front panel.  
+<div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/shock.jpg" length="1024" width="640">
 
+  Figure. the shock expression 
+  
 The part of the eye that expresses calm is designed as `▯▯` and the part of the mouse is designed as `一`. After calibration, lights in the optional light array are counted to display this expression:  . Figure. shows the calm expression displayed in the front panel.  
+<div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/calm.jpg" length="1024" width="640">
+
+  Figure. the happiness expression 
 ### Hardware design
 The hardware of the helmet contains two parts: front panel and base plate. The front panel has two layers. The first layer of the front panel needs to carry the LED strip circuit of the system. The second layer of the front panel should obscure most of the circuit details and reduce the brightness of the LEDs appropriately. The base plate is the main part. There should be designed proper places that could carry the Raspberry Pi, the front panel and battery and the whole helmet needs to be designed longer than normal mask so that it can provide sufficient distance between camera and wearer’s face.  
 #### Front panel design 
