@@ -57,12 +57,15 @@
 
 #### Raspberry Pi
 In this project, our team is using the Raspberry Pi 4 Model B with 4GB Ram. It is an embedded system and has good performance.
+<img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-5/image/Raspberry%20Pi.png" length="1024" width="640"> 
 
 #### Pi camera
-The Raspberry Pi Camera Module v2 is a customised expansion board for the Raspberry Pi with a high quality 8MP Sony IMX219 sensor and a fixed focus lens. It can reach 3280 x 2464 pixel stills and also supports 1080p30, 720p60 and 640x480p60/90 camera capabilities. The expansion board understands the Raspberry Pi through a small slot on the surface of the board and uses a dedicated CSI interface, specially designed for cameras. In this project, we use 1080p30 camera capability.
+The Raspberry Pi Camera Module v2 is a customised expansion board for the Raspberry Pi with a high quality 8MP Sony IMX219 sensor and a fixed focus lens. It can reach 3280 x 2464 pixel stills and also supports 1080p30, 720p60 and 640x480p60/90 camera capabilities. The expansion board understands the Raspberry Pi through a small slot on the surface of the board and uses a dedicated CSI interface, specially designed for cameras. In this project, we use 1080p30 camera capability.    
+<img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-5/image/Pi%20Camera.jpg">    
 
 #### WS2812B LED strip
 WS2812B is an intelligent control LED light source that the control circuit and RGB chip are integrated in. It is programmable and cuttable. The voltage support is DC5V, which is the same of Raspberry Pi.  
+<img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-5/image/WS2812B%20LED%20Strip.jpg" length="1024" width="640">
 
 ### Environment construction 
 To install OpenCV library, first thing is to download the modules of [OpenCV library](https://docs.opencv.org/). The development files end in `-dev` and for opencv they are of the format `libopencv-moduleYouWant-dev`, or `libopencv-dev`, which includes all openCV modules.
@@ -167,15 +170,25 @@ Figure.9 Dimensions of the base plate layout
 <div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/3D%20base%20plate.png" length="1024" width="640">    
 
 Figure.10 Three-dimensional model of the base plate 
-  
-### Auto start-up 
+<div align=left> 
 
-
-
-
-
-
-
+### Auto start-up programme
+To self-start a script and run a particular C++ file in the Raspberry Pi, the first thing is to create a script file and save it in a suitable location. In this project, we store it to `/home/raspberry/startup.sh. Any text editor can be used to create this file.     
+After that, add the following to the script file:
+```
+#!/bin/bash
+cd /home/raspberry/facecapture_test
+./face_capture
+```
+The third step is to grant permission to execute the script file. Enter the following command in the terminal:
+```
+chmod +x /home/pi/startup.sh
+```
+The script file can now be added to the Raspberry Pi's boot entry. The project edit the `/etc/rc.local` file, which can be opened with any text editor. Add the following to the end of the document:
+```
+sudo -u raspberry /home/raspberry/startup.sh &
+```
+Now reboot the system and the script can automatically start to run.
 
 
 
