@@ -7,7 +7,6 @@
 
 using namespace dlib;
 using namespace std;
-//using namespace cv;
 using namespace cv::ml;
 int main()
 {
@@ -59,22 +58,22 @@ int main()
 
 				if (svm->predict(query) == 250) {
 					cv::putText(temp, "Happy" , cv::Point(20, 60),3, 2, cvScalar(0, 0, 255));
-					cout << "高兴" << endl;
+					cout << "Happy" << endl;
 				}
 					
 				if (svm->predict(query) == 170) {
 					cv::putText(temp, "Common", cv::Point(20, 60), 3, 2, cvScalar(0, 0, 255));
-					cout << "平静" << endl;
+					cout << "Common" << endl;
 				}
 				if (svm->predict(query) == 300) {
-					cv::putText(temp, "Disgust", cv::Point(20, 60), 3, 2, cvScalar(0, 0, 255));
-					cout << "厌恶" << endl;
+					cv::putText(temp, "Shocked", cv::Point(20, 60), 3, 2, cvScalar(0, 0, 255));
+					cout << "Shocked" << endl;
 				}
 				//	cout<<	svm->predict(query)<<endl;
-			//	cout << 结果 << endl;
+			//	cout << Result << endl;
 			}
 			//Display it all on the screen  
-			imshow("表情识别      ESC退出", temp);
+			imshow("Motion Capture", temp);
 
 		}
 	}
