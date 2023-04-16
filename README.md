@@ -106,6 +106,10 @@ Test module:
 Read in the trained XML, classify each frame and display the results. 
 
 The programme can be viewed through [there](https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/tree/main/Expression%20recognition%20training%20module).
+
+### Software building in Raspberry Pi
+
+
 ### Light array connection and display 
 In this project, WS2812B LED strip was used as the output equipment to show the corresponding facial expressions on the helmet. Light sets are available in 30 per metre and 144 per metre. The project uses 144 per metre, deployed around the eyes and mouth.
 #### LED strip soldering 
@@ -153,6 +157,8 @@ Figure.9 Dimensions of the base plate layout
 
 Figure.10 Three-dimensional model of the base plate 
   
+### Auto start-up 
+
 
 
 
