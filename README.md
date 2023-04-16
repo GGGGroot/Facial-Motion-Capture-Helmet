@@ -125,8 +125,8 @@ The programme can be viewed through [there](https://github.com/GGGGroot/Facial-M
 
 First you need to ensure that CMake is installed on your system. If it is not already installed, follow these steps:
 ```
-sudo apt-get update Update the package list
-sudo apt-get install cmake Install CMake
+sudo apt-get update # Update the package list
+sudo apt-get install # cmake Install CMake
 ```
 Next, you will build and compile your project using CMake. First, create a new CMakeLists.txt file in the project folder, with the following contents:
 ```
@@ -161,12 +161,12 @@ TARGET_LINK_LIBRARIES(face_capture dlib ${OpenCV_LIBS} ws2811 wiringPi pthread r
 ```
 Then compile using cmake, as follows:
 ```
-cd facecapture_test #Go to the project directory
-mkdir build #Create a new build directory
-cd build #Go into the build directory
-cmake .. #Run CMake to generate the build system
-make -j8 #Compile the project
-sudo . /face_capture #Execute the program
+cd facecapture_test # Go to the project directory
+mkdir build # Create a new build directory
+cd build # Go into the build directory
+cmake .. # Run CMake to generate the build system
+make -j8 # Compile the project
+sudo . /face_capture # Execute the program
 ```
 Note: Ensure that the shape_predictor_68_face_landmarks.dat and SVM_DATA files are in the build folder.
 
