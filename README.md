@@ -53,6 +53,20 @@
 - [x] booking a technical service to 3D print the base plate
 - [x] writing boot-up coding
 ## Project guide
+### Hardware guidance
+
+#### Raspberry Pi
+In this project, our team is using the Raspberry Pi 4 Model B with 4GB Ram. It is an embedded system and has good performance.    
+<img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-5/image/Raspberry%20Pi.png" length="1024" width="640"> 
+
+#### Pi camera
+The Raspberry Pi Camera Module v2 is a customised expansion board for the Raspberry Pi with a high quality 8MP Sony IMX219 sensor and a fixed focus lens. It can reach 3280 x 2464 pixel stills and also supports 1080p30, 720p60 and 640x480p60/90 camera capabilities. The expansion board understands the Raspberry Pi through a small slot on the surface of the board and uses a dedicated CSI interface, specially designed for cameras. In this project, we use 1080p30 camera capability.    
+<img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-5/image/Pi%20Camera.jpg">    
+
+#### WS2812B LED strip
+WS2812B is an intelligent control LED light source that the control circuit and RGB chip are integrated in. It is programmable and cuttable. The voltage support is DC5V, which is the same of Raspberry Pi.   
+<img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-5/image/WS2812B%20LED%20Strip.jpg" length="1024" width="640">
+
 ### Environment construction 
 To install OpenCV library, first thing is to download the modules of [OpenCV library](https://docs.opencv.org/). The development files end in `-dev` and for opencv they are of the format `libopencv-moduleYouWant-dev`, or `libopencv-dev`, which includes all openCV modules.
 
@@ -109,6 +123,52 @@ The programme can be viewed through [there](https://github.com/GGGGroot/Facial-M
 
 ### Software building in Raspberry Pi
 
+First you need to ensure that CMake is installed on your system. If it is not already installed, follow these steps:
+```
+sudo apt-get update Update the package list
+sudo apt-get install cmake Install CMake
+```
+Next, you will build and compile your project using CMake. First, create a new CMakeLists.txt file in the project folder, with the following contents:
+```
+cmake_minimum_required(VERSION 2.8.4) # Minimum version required is 2.8.4
+
+PROJECT(face_capture) # Set the project name
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O2 -DDLIB_JPEG_SUPPORT")
+
+IF(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Weverything")
+ELSEIF(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
+ENDIF()
+
+#INCLUDE OPENCV
+FIND_PACKAGE(OpenCV REQUIRED)
+INCLUDE_DIRECTORIES(${OpenCV_INCLUDE_DIRS})
+message(STATUS "Opencv include dir found at ${OpenCV_INCLUDE_DIRS}")
+
+# Include header files
+INCLUDE_DIRECTORIES(/home/raspberry/dlib-19.24) # dlib root directory
+INCLUDE_DIRECTORIES(/home/raspberry/rpi_ws281x_3) # light-headfile
+
+LINK_DIRECTORIES(/home/raspberry/dlib-19.24/build/dlib/) # dlib build directory after compilation
+LINK_DIRECTORIES(/home/raspberry/rpi_ws281x_3/build/)
+
+# Create an executable file similar to .exe
+ADD_EXECUTABLE(face_capture main.cpp)
+# Link libraries
+TARGET_LINK_LIBRARIES(face_capture dlib ${OpenCV_LIBS} ws2811 wiringPi pthread rt m crypt)
+```
+Then compile using cmake, as follows:
+```
+cd facecapture_test #Go to the project directory
+mkdir build #Create a new build directory
+cd build #Go into the build directory
+cmake .. #Run CMake to generate the build system
+make -j8 #Compile the project
+sudo . /face_capture #Execute the program
+```
+Note: Ensure that the shape_predictor_68_face_landmarks.dat and SVM_DATA files are in the build folder.
 
 ### Light array connection and display 
 In this project, WS2812B LED strip was used as the output equipment to show the corresponding facial expressions on the helmet. Light sets are available in 30 per metre and 144 per metre. The project uses 144 per metre, deployed around the eyes and mouth.
@@ -156,15 +216,25 @@ Figure.9 Dimensions of the base plate layout
 <div align=center><img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-3/image/3D%20base%20plate.png" length="1024" width="640">    
 
 Figure.10 Three-dimensional model of the base plate 
-  
-### Auto start-up 
+<div align=left> 
 
-
-
-
-
-
-
+### Auto start-up programme
+To self-start a script and run a particular C++ file in the Raspberry Pi, the first thing is to create a script file and save it in a suitable location. In this project, we store it to `/home/raspberry/startup.sh. Any text editor can be used to create this file.     
+After that, add the following to the script file:
+```
+#!/bin/bash
+cd /home/raspberry/facecapture_test
+./face_capture
+```
+The third step is to grant permission to execute the script file. Enter the following command in the terminal:
+```
+chmod +x /home/pi/startup.sh
+```
+The script file can now be added to the Raspberry Pi's boot entry. The project edit the `/etc/rc.local` file, which can be opened with any text editor. Add the following to the end of the document:
+```
+sudo -u raspberry /home/raspberry/startup.sh &
+```
+Now reboot the system and the script can automatically start to run.
 
 
 
