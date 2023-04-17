@@ -55,9 +55,9 @@
 ## Auto unit test
 | Source | Status |
 | ---- | ---- |
-| camera.cpp | Done |
-| light.cpp | Done |
-| . | . |
+| Camera initialisation| Done |
+| Light | Done |
+| Facial expression recognition | Done |
 ## Project guide
 ### Hardware guidance
 
@@ -214,6 +214,64 @@ The part of the eye that expresses calm is designed as `▯▯` and the part of 
 Figure.6 the common expression 
 <div align=left>
 
+### Auto unit test
+
+Unit test is the inspection and verification of the smallest testable units in software. In this project, the light function and the facial expression detection function are being auto tested using Geoogle test.
+The first thing is to build the CmakeList file of this test programme:
+```
+cmake_minimum_required(VERSION 2.8.4)  
+
+set(Test LightTest)
+
+set(Sources test.cpp)
+
+add_executable(${Test} ${Sources})
+
+target_link_libraries( ${Test} PUBLIC
+	gtest_main
+	mycode
+)
+
+add_test(NAME ${Test}
+	COMMAND ${Test}
+)
+```
+After that, using gtest library to test the basic function of this project. This is the auto unit test of LED lighting:
+```
+TEST(LightTest, MultiLeds)
+{
+	EXPECT_TRUE(light::lightUpMultipleLEDs({1,2},0xFF0000));
+}
+```
+This is the auto unit test of camera initialisation:
+```
+TEST(CameraTest, InitCamera)
+{
+	cv::VideoCapture cap(0);
+	EXPECT_TRUE(initCamera(cap));
+	delete cap
+}
+```
+This is the auto unit test of facial expression recognition:
+```
+TEST(CameraTest, MotionTest)
+{
+	frontal_face_detector detector_test = get_frontal_face_detector();
+	shape_predictor pose_model_test;
+	deserialize("/home/raspberry/facecapture_test/build/shape_predictor_68_face_landmarks.dat") >> pose_model_test;
+	cv::Ptr<SVM> svm_test = StatModel::load<SVM>("/home/raspberry/FaceCapture/SVM_DATA.xml");
+	cv::VideoCapture cap(0);
+	cv::Mat temp_test;
+	cap >> temp_test;
+		
+	EXPECT_TRUE(recognizeMotion(temp_test, detector_test, pose_model_test, svm_test));
+		
+	delete temp_test;
+	delete detector_test;
+	delete pose_model_test;
+	delete svm_test;
+}
+```
 ### Hardware design
 The hardware of the helmet contains two parts: front panel and base plate. The front panel has two layers. The first layer of the front panel needs to carry the LED strip circuit of the system. The second layer of the front panel should obscure most of the circuit details and reduce the brightness of the LEDs appropriately. The base plate is the main part. There should be designed proper places that could carry the Raspberry Pi, the front panel and battery and the whole helmet needs to be designed longer than normal mask so that it can provide sufficient distance between camera and wearer’s face.  
 #### Front panel design 
