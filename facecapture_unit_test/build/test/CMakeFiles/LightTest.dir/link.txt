@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++11 -O2 -DDLIB_JPEG_SUPPORT -Wall -Wextra -rdynamic CMakeFiles/LightTest.dir/test.cpp.o -o LightTest   -L/home/raspberry/dlib-19.24/build/dlib  -L/home/raspberry/rpi_ws281x_3/build  -Wl,-rpath,/home/raspberry/dlib-19.24/build/dlib:/home/raspberry/rpi_ws281x_3/build -lgtest_main ../libmycode.a 
