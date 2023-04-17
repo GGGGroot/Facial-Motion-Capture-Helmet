@@ -55,8 +55,8 @@
 ## Auto unit test
 | Source | Status |
 | ---- | ---- |
-| camera.cpp | done |
-| light.cpp | done |
+| camera.cpp | Done |
+| light.cpp | Done |
 | . | . |
 ## Project guide
 ### Hardware guidance
