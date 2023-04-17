@@ -86,6 +86,16 @@ To install GPIO library, the first thing is to download the [wiringpi library](h
 ```
 sudo dpkg -i wiringpi-latest.deb
 ```
+ws281x library is used to drive ws2812b LED strip. To install this library, the first thing is to download the [ws281x library](https://github.com/jgarff/), and then run the following:
+```
+cd rpi_ws281x
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
+Now the ws281x library is installed successfully.
 ### Facial expression capture and recognition 
 The program uses the OpenCV library for image processing and display, and the Dlib library for face detection and expression recognition.  
 
