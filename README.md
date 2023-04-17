@@ -272,6 +272,7 @@ TEST(CameraTest, MotionTest)
 	delete svm_test;
 }
 ```
+The auto unit test of all these three are successful, but the `gtest` do not support the version of c++ less than 14. In this case, we use the Windows system to carry on the auto unit test rather than Raspberry Pi.
 ### Hardware design
 The hardware of the helmet contains two parts: front panel and base plate. The front panel has two layers. The first layer of the front panel needs to carry the LED strip circuit of the system. The second layer of the front panel should obscure most of the circuit details and reduce the brightness of the LEDs appropriately. The base plate is the main part. There should be designed proper places that could carry the Raspberry Pi, the front panel and battery and the whole helmet needs to be designed longer than normal mask so that it can provide sufficient distance between camera and wearer’s face.  
 #### Front panel design 
