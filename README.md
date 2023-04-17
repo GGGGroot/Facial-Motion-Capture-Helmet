@@ -52,6 +52,12 @@
 - [x] designing base plate of the helmet
 - [x] booking a technical service to 3D print the base plate
 - [x] writing boot-up coding
+## Auto unit test
+| Source | Status |
+| ---- | ---- |
+| camera.cpp | done |
+| light.cpp | done |
+| . | . |
 ## Project guide
 ### Hardware guidance
 
@@ -66,6 +72,9 @@ The Raspberry Pi Camera Module v2 is a customised expansion board for the Raspbe
 #### WS2812B LED strip
 WS2812B is an intelligent control LED light source that the control circuit and RGB chip are integrated in. It is programmable and cuttable. The voltage support is DC5V, which is the same of Raspberry Pi.   
 <img src="https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-5/image/WS2812B%20LED%20Strip.jpg" length="1024" width="640">
+
+### System Flowchart
+![Flow Block Diagram](https://github.com/GGGGroot/Facial-Motion-Capture-Helmet/blob/GGGGroot-patch-6/image/Flow%20Block%20Diagram.png)
 
 ### Environment construction 
 To install OpenCV library, first thing is to download the modules of [OpenCV library](https://docs.opencv.org/). The development files end in `-dev` and for opencv they are of the format `libopencv-moduleYouWant-dev`, or `libopencv-dev`, which includes all openCV modules.
